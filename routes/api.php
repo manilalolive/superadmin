@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrganizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,3 +15,10 @@ use App\Http\Controllers\UserController;
 |
 */
 Route::post('/login', [UserController::class, 'login']);
+
+
+
+Route::middleware('auth:api')->group(function () {
+	Route::get('/organizations',[OrganizationController::class,'index']);
+	Route::post('/organization/store',[OrganizationController::class,'store']);
+});
