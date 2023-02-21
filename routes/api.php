@@ -21,4 +21,5 @@ Route::post('/login', [UserController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
 	Route::get('/organizations',[OrganizationController::class,'index']);
 	Route::post('/organization/store',[OrganizationController::class,'store']);
+	Route::post('/user',[UserController::class,'store']);
 });

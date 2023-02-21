@@ -27,10 +27,10 @@ class User extends Authenticatable
     protected $primaryKey = 'id';
     protected $keyType = 'string';
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at'
     ];
 
     /**

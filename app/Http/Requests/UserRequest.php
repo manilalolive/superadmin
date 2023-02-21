@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class OrganizationRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -37,15 +37,7 @@ class OrganizationRequest extends FormRequest
         return [
             'name' => 'required|max:250|min:3',
             'email' => 'required|email|max:30|min:3',
-            'username' => 'nullable|max:30|min:3',
-            'password'=> 'required|max:30|min:3',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date',
-            'sub_domain'=> 'nullable|max:30',
-            'db_name'=> 'nullable|max:30',
-            'db_username'=> 'nullable|max:30',
-            'db_password'=> 'nullable|max:30',
-            'is_active'=> 'nullable|boolean',
+            'password'=> 'required|max:30|min:3'
         ];
     }
 }
