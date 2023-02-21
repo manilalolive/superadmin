@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Middleware\CheckUserType;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,12 @@ use App\Http\Controllers\OrganizationController;
 Route::post('/login', [UserController::class, 'login']);
 
 
-
-Route::middleware('auth:api')->group(function () {
+Route::middleware(['auth:api',CheckUserType::class])->group(function () {
 	Route::get('/organizations',[OrganizationController::class,'index']);
-	Route::post('/organization/store',[OrganizationController::class,'store']);
 	Route::post('/user',[UserController::class,'store']);
+});
+
+// routes for outside user
+Route::middleware('auth:api')->group(function () {
+	Route::post('/organization/store',[OrganizationController::class,'store']);
 });
