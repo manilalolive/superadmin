@@ -36,15 +36,12 @@ class OrganizationRequest extends FormRequest
     {
         return [
             'name' => 'required|max:250|min:3',
-            'email' => 'required|email|max:30|min:3',
-            'username' => 'nullable|max:30|min:3',
-            'password'=> 'required|max:30|min:3',
+            'email' => 'required|email|max:50|min:3',
+            'username' => 'nullable|max:50|min:3',
+            'password'=> 'nullable|max:30|min:3',
             'start_date' => 'nullable|date',
             'end_date' => 'nullable|date',
-            'sub_domain'=> 'nullable|max:30',
-            'db_name'=> 'nullable|max:30',
-            'db_username'=> 'nullable|max:30',
-            'db_password'=> 'nullable|max:30',
+            'sub_domain'=> 'nullable|max:50',
             'is_active'=> 'nullable|boolean',
         ];
     }

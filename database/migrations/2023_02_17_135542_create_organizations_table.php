@@ -16,15 +16,15 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name', 250);
-            $table->string('email', 30);
-            $table->string('username', 30)->nullable();
-            $table->string('password',30)->nullable();
+            $table->string('email', 50);
+            $table->string('username', 50)->nullable();
+            $table->string('password')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->string('sub_domain',30)->nullable();
-            $table->string('db_name',30)->nullable();
-            $table->string('db_username',30)->nullable();
-            $table->string('db_password',30)->nullable();
+            $table->string('sub_domain')->nullable();
+            $table->string('db_name')->nullable();
+            $table->string('db_username')->nullable();
+            $table->string('db_password')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
